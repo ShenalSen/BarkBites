@@ -1,4 +1,4 @@
-package com.example.barkbites.ui.slideshow;
+package com.example.barkbites.ui.cart;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,22 +8,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.barkbites.databinding.FragmentSlideshowBinding;
+import com.example.barkbites.databinding.FragmentGalleryBinding;
 
-public class SlideshowFragment extends Fragment {
+public class CartFragment extends Fragment {
 
-private FragmentSlideshowBinding binding;
+private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        CartViewModel cartViewModel =
+                new ViewModelProvider(this).get(CartViewModel.class);
 
-    binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+    binding = FragmentGalleryBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGallery;
+        cartViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
